@@ -3,8 +3,8 @@ Cherwell is a highly configurable service desk solution for keeping organization
 
 
 # Pre-Requisites
-* Cherwell v10
-* The [xMatters mApp](LKJLASDF) FIXLINK
+* Cherwell v10.1.1 or higher
+* The [xMatters mApp](https://www.cherwell.com/marketplace/xmatters/)
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
 
 # Files
@@ -97,7 +97,7 @@ Here's where those two parts are in the URL:
 ### Import and Configure mApp
 
 1. Log in to the Administrator console and click the **mApps** menu. Click **Apply a mApp**.
-2. Navigate select the [xMatters mApp](ASFDAS) FIXLINK and navigate through the wizard.
+2. Navigate select the [xMatters mApp](https://www.cherwell.com/marketplace/xmatters/) and navigate through the wizard.
 
 <kbd>
    <img src="media/README/20201008224155.png" width="300">
@@ -117,6 +117,12 @@ The endpoint entry should not begin with a slash (/).
 7. Repeat for the **Terminate Events** method, using the **Terminate Events** HTTP Trigger URL. 
 8. Save the Blueprint, then click **Scan Blueprint** on the left-hand menu. If that is successful, click the **Publish Blueprint** link.
 
+### Reload definitions
+
+After you publish the blueprint, you're prompted to reload definitions.
+
+1. Head over to the Cherwell desktop client (not the Administrator Console we were working in above).
+2. Click Help and select Reload definitions.
 
 # Running Behind a Firewall
 
