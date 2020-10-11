@@ -6,6 +6,7 @@ Cherwell is a highly configurable service desk solution for keeping organization
 * Cherwell v10.1.1 or higher
 * The [xMatters mApp](https://www.cherwell.com/marketplace/xmatters/)
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
+* xMatters Agent - If Cherwell is not accessible via the public internet, an agent will need to be installed on the server. See the [Running Behind a Firewall](#running-behind-a-firewall) section below. 
 
 # Files
 * [Cherwell.zip](Cherwell.zip) - The workflow containing the flow canvases and event forms.
