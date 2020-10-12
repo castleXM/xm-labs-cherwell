@@ -2,6 +2,17 @@
 Cherwell is a highly configurable service desk solution for keeping organizations running. This integration to xMatters provides extensive notification abilities across a variety of devices as well as access to the xMatters flow designer platform. Using the flow designer platform, teams can extend their incident response processes to quickly get the business back up and running. 
 
 
+Also, check out the Cherwell Flow Designer steps available [here](https://github.com/xmatters/xm-labs-steps-cherwell).
+
+---------
+
+<kbd>
+  <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+</kbd>
+
+---------
+
+
 # Pre-Requisites
 * Cherwell v10.1.1 or higher
 * The [xMatters mApp](https://www.cherwell.com/marketplace/xmatters/)
