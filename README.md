@@ -2,10 +2,22 @@
 Cherwell is a highly configurable service desk solution for keeping organizations running. This integration to xMatters provides extensive notification abilities across a variety of devices as well as access to the xMatters flow designer platform. Using the flow designer platform, teams can extend their incident response processes to quickly get the business back up and running. 
 
 
+Also, check out the Cherwell Flow Designer steps available [here](https://github.com/xmatters/xm-labs-steps-cherwell).
+
+---------
+
+<kbd>
+  <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+</kbd>
+
+---------
+
+
 # Pre-Requisites
 * Cherwell v10.1.1 or higher
 * The [xMatters mApp](https://www.cherwell.com/marketplace/xmatters/)
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
+* xMatters Agent - If Cherwell is not accessible via the public internet, an agent will need to be installed on the server. See the [Running Behind a Firewall](#running-behind-a-firewall) section below. 
 
 # Files
 * [Cherwell.zip](Cherwell.zip) - The workflow containing the flow canvases and event forms.
@@ -25,7 +37,8 @@ On the **Incident - Assigned To** and **Incident - Assigned Group** canvases, th
    <img src="media/README/20201008215435.png">
 </kbd>
 
-**Note**: An [Automation Process](https://help.cherwell.com/bundle/csm_administration_10_help_only/page/content/system_administration/automation_processes/managing_automation_processes.html) can be configured to automatically trigger the web service calls under a variety of condition instead of needing to trigger manually. 
+
+**Note**: An [Automation Process](https://help.cherwell.com/bundle/csm_administration_10_help_only/page/content/system_administration/automation_processes/managing_automation_processes.html) can be configured to automatically trigger the web service calls under a variety of conditions instead of needing to trigger manually. 
 
 # Installation
 
@@ -36,7 +49,7 @@ On the **Incident - Assigned To** and **Incident - Assigned Group** canvases, th
 1. Navigate to the Users menu and create a new user for Cherwell to authenticate with. Grant the **REST Web Service User** role. 
 
 <kbd>
-   <img src="media/README/20201008223447.png">
+   <img src="media/README/20201008223447.png" width="500">
 </kbd>
 
 ### Import the Workflow
@@ -44,7 +57,7 @@ On the **Incident - Assigned To** and **Incident - Assigned Group** canvases, th
 
 1. Log in to xMatters as a Company Supervisor or a Developer and navigate to the Workflows page. Click the **Import** button and import the [Cherwell.zip](Cherwell.zip) file. 
 2. Open the workflow and navigate to the Flows tab.
-3. Click on the Incident canvas and then double click on the **Inbound from Cherwell** HTTP Trigger.
+3. Click on the **Incident** canvas and then double click on the **Inbound from Cherwell** HTTP Trigger.
 
 <kbd>
    <img src="media/README/20201008220421.png">
@@ -53,18 +66,9 @@ On the **Incident - Assigned To** and **Incident - Assigned Group** canvases, th
 4. Copy the url and save for later. 
 5. Return to the flows tab and open the **Terminate Events** canvas. Double click on the Terminate Events HTTP Trigger.
 6. Copy the URL and save for later. 
-7. On the flows tab, click the Components > Endpoints and select the Cherwell endpoint.
-8. Update the **Base URL** and the **Access Token URL** values with the hostname of the Cherwell environment. Populate the Username, Password and Client ID if known. Otherwise they will be retrieved later in this document. 
-
-<kbd>
-   <img src="media/README/20201008222628.png">
-</kbd>
-
 9. On the Forms tab, click the **Not Deployed** dropdown next to **Incident - Assigned To** and select Sender Permissions. Add the cherwell user created above. 
 10. Repeat for the **Incident - Assigned Group** form.
 11. Click the gear icon and choose Editor permissions. Add the cherwell user here as well. 
-
-If Cherwell is running behind a firewall and not publicly accessible, see the details [below](#running-behind-a-firewall) about using an xMatters agent. 
 
 
 ## Prepare the URLs
@@ -91,7 +95,14 @@ Here's where those two parts are in the URL:
 </kbd>
 
 2. Still in the Security menu, click the **Edit REST API client settings** link to display the dialog. Create a new REST API Client and copy the **Client Key**. 
-3. Back in xMatters, navigate to the Flows tab and open the Components > Endpoints. On the Cherwell endpoint, enter the username, password and Client Key values. Enter a value in the Client Secret. Any value will do, adding a value tells the endpoint to save the Client Key and Secret. 
+3. Back in xMatters, navigate to the Flows tab and open the **Components > Endpoints**. On the **Cherwell** endpoint populate the **Base URL** and the **Access Token URL** values with the hostname of the Cherwell environment. The Access Token URL will be the base Cherwell url with `/CherwellApi/token` appended. So if Cherwell is accesible as `https://my.cherwell.com`, the Access Token URL will be `https://my.cherwell.com/CherwellApi/token`. 
+4. Enter the username, password and Client Key values. Enter a value in the Client Secret. Any value will do, adding a value tells the endpoint to save the Client Key and Secret. 
+
+<kbd>
+   <img src="media/README/20201008222628.png">
+</kbd>
+
+If Cherwell is running behind a firewall and not publicly accessible, see the details [below](#running-behind-a-firewall) about using an xMatters agent. 
 
 
 ### Import and Configure mApp
@@ -100,13 +111,13 @@ Here's where those two parts are in the URL:
 2. Navigate select the [xMatters mApp](https://www.cherwell.com/marketplace/xmatters/) and navigate through the wizard.
 
 <kbd>
-   <img src="media/README/20201008224155.png" width="300">
+   <img src="media/README/20201008224155.png" width="350">
 </kbd>
 
 3. On the last step, select **Open a Blueprint so that I can preview the changes**, since we need to make additional changes before the mApp can be published, then click Finish.
 
 <kbd>
-   <img src="media/README/20201008224242.png" width="300">
+   <img src="media/README/20201008224242.png" width="350">
 </kbd>
 
 4. Click **Managers > Web Services** to display the Web Services Manager. When the dialog is displayed, right-click on the **xMatters** icon and select Edit.
@@ -141,19 +152,19 @@ Make sure to update the Cherwell endpoint (Components > Endpoints) to have the c
 Navigate to an open Incident and click **One-Step** from the top menu and click the **xMatters - Notify** step then click **Run**.
 
 <kbd>
-	<img src="media/README/20201009094222.png" width="600">
+	<img src="media/README/20201009094222.png" width="700">
 </kbd>
 
 This will gather the details of the incident and send the web service call to xMatters. You can see the incoming request in the **Activity Stream** on the **Incident** canvas. This is where the request is parsed and then routed to the **Incident - Assigned To** or **Incident - Assigned Group** forms. 
 
 <kbd>
-	<img src="media/README/20201009095317.png" width="550">
+	<img src="media/README/20201009095317.png" width="600">
 </kbd>
 
 If everything is green, a new event will be shown in the **Recent Events** report:
 
 <kbd>
-	<img src="media/README/20201009102207.png" width="550">
+	<img src="media/README/20201009102207.png" width="600">
 </kbd>
 
 
@@ -161,7 +172,7 @@ If everything is green, a new event will be shown in the **Recent Events** repor
 If the event is not being created in xMatters, the first thing to check is the [System Analyzer](https://help.cherwell.com/bundle/csm_administration_10_help_only/page/content/system_administration/system_analyzer/run_the_system_analyzer.html). Open the System Analyzer and then execute the One-Step and inspect the results for any errors.
 
 <kbd>
-   <img src="media/README/20201009103130.png" width="500">
+   <img src="media/README/20201009103130.png" width="700">
 </kbd>
 
 If there are no errors there, navigate to the xMatters **Incident** canvas and open the Activity Stream for any errors. 
