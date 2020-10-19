@@ -131,7 +131,7 @@ If Cherwell is running behind a firewall and not publicly accessible, see [the i
 6. Now click **Methods**, select the **Create Event** method and click **Edit**.
 7. In the **Endpoint** field, paste the Integration URL portion of the Incident URL [you copied](#import-the-workflow) from xMatters. The endpoint entry should not begin with a slash (/).
 8. Repeat for the **Terminate Events** method, using the **Terminate Events** HTTP Trigger URL. 
-9. Now click **Accounts** and edit the existing entry, or add a new one. Populate the **User ID** and **Password** with the values of the xMatters user [you created](create-a-cherwell-user) in xMatters. Click **OK**, then **Save**.
+9. Now click **Accounts** and edit the existing entry, or add a new one. Populate the **User ID** and **Password** with the values of the xMatters user [you created](#create-a-cherwell-user) in xMatters. Click **OK**, then **Save**.
 9. Save the Blueprint, then click **Scan Blueprint** on the left-hand menu. If that is successful, click the **Publish Blueprint** link.
 
 ### Reload definitions
