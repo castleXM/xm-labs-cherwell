@@ -43,7 +43,7 @@ On the **Incident - Assigned To** and **Incident - Assigned Group** canvases, th
 # Installation
 
 ## xMatters set up
-Log in to xMatters as a Company Supervisor or a Developer - you'll need the persmissions granted by these roles to configure workflow.
+Log in to xMatters as a Company Supervisor or a Developer - you'll need the permissions granted by these roles to configure workflow.
 
 ### Create a Cherwell user
 
